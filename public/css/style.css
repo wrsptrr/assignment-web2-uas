@@ -1,0 +1,168 @@
+/* ALL */
+
+/* NAVBAR */
+.navbar-backend {
+    background-color: #dbb681;
+}
+
+/* TEXT */
+.text-main {
+    color: #dbb681 !important;
+}
+
+/* BUTTON */
+.btn {
+    border-radius: 0px;
+}
+
+.btn-main {
+    background-color: #dbb681;
+    color: white;
+    border-radius: 0px;
+}
+
+.btn-main:hover {
+    background: none !important;
+    color: #dbb681;
+    border-color: #dbb681;
+}
+
+.btn-main2 {
+    background-color: #dbb681;
+    color: white;
+    border-radius: 0px;
+    transition: 0.2s;
+}
+
+.btn-main2:hover {
+    background-color: #dbb681;
+    color: white;
+    border-radius: 0px;
+    opacity: 0.7;
+
+}
+
+.btn-outline-main {
+    background-color: none;
+    color: #dbb681;
+    border-color: #dbb681;
+    border-radius: 0px;
+}
+
+.btn-outline-main:hover {
+    background-color: #dbb681;
+    color: white;
+}
+
+.btn-outline-main2 {
+    background-color: none;
+    color: #dbb681;
+    border-color: #dbb681;
+    border-radius: 0px;
+    transition: 0.2s;
+}
+
+.btn-outline-main2:hover {
+    color: #dbb681;
+    opacity: 0.7;
+}
+
+/* FORM */
+.form-search {
+    border-radius: 0px;
+}
+
+/* HEADER */
+.header {
+    background-image: url(/image/header.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.header-heading-color-main {
+    color: #dbb681;
+}
+
+.header-btn {
+    background-color: #dbb681;
+    color: white;
+    border-radius: 0px;
+    transition: 0.5s;
+
+}
+
+.header-btn:hover {
+    padding-left: 80px !important;
+    padding-right: 80px !important;
+    background: none !important;
+    color: #dbb681;
+    border-color: #dbb681;
+}
+
+/* HOME NEW PRODUCT */
+.product-home {
+    padding: 20px;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+.product-home:hover {
+    margin-bottom: -10px;
+    padding-bottom: -10px;
+    padding: 10px;
+    opacity: 1;
+}
+
+/* HOME SECTION */
+.section-home {
+    background-image: url(/image/section.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* HOME CATEGORY */
+.category-home {
+    padding: 20px;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+.category-home:hover {
+    padding: 10px;
+    opacity: 1;
+}
+
+/* HOME PAYMENT METHOD */
+.pm {
+    background: none;
+    border-color: #dbb681;
+    border-radius: 0px;
+    color: #dbb681;
+}
+
+/* HOME ACCOUNT */
+.acc {
+    margin-left: 100px;
+}
+
+.acc-pict {
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+}
+
+/* LOGIN */
+.login-frontend {
+    height: 580px;
+    background-image: url(/image/login-frontend.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* REGISTER */
+.register {
+    height: 580px;
+    background-image: url(/image/register.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
