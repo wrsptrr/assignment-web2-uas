@@ -62,7 +62,7 @@
         <!-- End Navbar -->
 
         <!-- Content -->
-        <section class="mt-5 pt-4" style="min-height:550px;">
+        <section class="mt-5 pt-4" style="min-height:100vh;">
         @yield('content')
         </section>
         <!-- End Content -->

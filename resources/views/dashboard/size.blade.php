@@ -1,4 +1,4 @@
-@extends('layout.app-backend')
+@extends('layout/dashboard')
 @section('title', 'Size')
 @section('breadcrumb')
     <li class="breadcrumb-item active" aria-current="page">Size</li>
@@ -11,7 +11,7 @@
 
         <!-- Search Form -->
         <div class="col-10">
-            <form action="{{ url('backend/size') }}" method="GET">
+            <form action="{{ url('dashboard/size') }}" method="GET">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" name="search" placeholder="Search by size name" aria-describedby="button-addon2">
                 <div class="input-group-append">
@@ -35,7 +35,7 @@
     @if(isset($_GET['search']))
     <div class="alert alert-primary  alert-dismissible fade show" role="alert">
         Search result from : <strong>{{$_GET['search']}}</strong>
-        <a href="{{ url('backend/size') }}">
+        <a href="{{ url('dashboard/size') }}">
             <button type="button" class="close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -92,7 +92,7 @@
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ url('backend/size') }}" method="POST">
+            <form action="{{ url('dashboard/size') }}" method="POST">
             @csrf
                 <div class="modal-body">
                     <div class="form-group">
@@ -128,7 +128,7 @@
             <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <form action="{{ url('backend/size/update') }}" method="POST" id="edit-form">
+        <form action="{{ url('dashboard/size/update') }}" method="POST" id="edit-form">
         @csrf
         @method('PUT')
             <div class="modal-body">
@@ -168,7 +168,7 @@
             <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <form action="{{ url('backend/size/delete') }}" method="POST" id="delete">
+        <form action="{{ url('dashboard/size/delete') }}" method="POST" id="delete">
         @csrf
         @method('DELETE')
             <div class="modal-body">

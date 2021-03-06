@@ -17,7 +17,7 @@ class CategoryController extends Controller
         $search     =   $request->search;
 
         $category   =   Category::where('category','like',"%".$search."%")->orderBy('id', 'desc')->paginate();
-        return view('backend/category', compact('category'));
+        return view('dashboard/category', compact('category'));
     }
 
     /**
@@ -60,7 +60,7 @@ class CategoryController extends Controller
 
         Category::create($form_data);
 
-        return redirect('backend/category')->with('success','Category created successfully !');
+        return redirect('dashboard/category')->with('success','Category created successfully !');
     }
 
     /**
@@ -116,7 +116,7 @@ class CategoryController extends Controller
 
         Category::whereId($request->id)->update($form_data);
 
-        return redirect('/backend/category')->with('success','Category edited successfully !');
+        return redirect('/dashboard/category')->with('success','Category edited successfully !');
     }
 
     /**
@@ -130,7 +130,7 @@ class CategoryController extends Controller
         $category = Category::findOrFail($request->id);
         $category->delete();
 
-        return redirect('/backend/category')->with('success','Category deleted successfully !');
+        return redirect('/dashboard/category')->with('success','Category deleted successfully !');
     }
     
     public function search(Request $request)
@@ -139,7 +139,7 @@ class CategoryController extends Controller
 
         $purchase   =   Purchase::where('id','like',"%".$search."%")->paginate();
 
-        return view('backend/purchase', compact('purchase'));
+        return view('dashboard/purchase', compact('purchase'));
     }
 
     

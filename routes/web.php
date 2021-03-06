@@ -11,7 +11,7 @@
 |
 */
 
-// Frontend
+// Public
 Route::get('/', 'PagesController@index');
 Route::get('/about', 'PagesController@about');
 Route::get('/product', 'PagesController@product');
@@ -32,23 +32,23 @@ Route::get('/history', 'PagesController@history')->middleware('auth');
 Route::get('/history/detail/{id}', 'PagesController@historyDetail')->middleware('auth');
 Route::get('/history/detail/print/{id}', 'PagesController@print')->middleware('auth');
 
-// Backend
-Route::get('/backend', 'PagesController@dashboard')->middleware('auth:admin');
-Route::get('/backend/purchase', 'PurchaseController@index')->middleware('auth:admin');
-Route::resource('/backend/purchase', 'PurchaseController')->middleware('auth:admin');
-Route::resource('/backend/product', 'ProductController')->middleware('auth:admin');
-Route::resource('/backend/category', 'CategoryController')->middleware('auth:admin');
-Route::resource('/backend/size', 'SizeController')->middleware('auth:admin');
+// Dashboard
+Route::get('/dashboard', 'PagesController@dashboard')->middleware('auth:admin');
+Route::get('/dashboard/purchase', 'PurchaseController@index')->middleware('auth:admin');
+Route::resource('/dashboard/purchase', 'PurchaseController')->middleware('auth:admin');
+Route::resource('/dashboard/product', 'ProductController')->middleware('auth:admin');
+Route::resource('/dashboard/category', 'CategoryController')->middleware('auth:admin');
+Route::resource('/dashboard/size', 'SizeController')->middleware('auth:admin');
 
-Route::get('/backend/product/update','ProductController@update');
-Route::get('/backend/category/update','CategoryController@update');
-Route::get('/backend/size/update','SizeController@update');
+Route::get('/dashboard/product/update','ProductController@update');
+Route::get('/dashboard/category/update','CategoryController@update');
+Route::get('/dashboard/size/update','SizeController@update');
 
-Route::get('/backend/product/delete','ProductController@destroy');
-Route::get('/backend/category/delete','CategoryController@destroy');
-Route::get('/backend/size/delete','SizeController@destroy');
+Route::get('/dashboard/product/delete','ProductController@destroy');
+Route::get('/dashboard/category/delete','CategoryController@destroy');
+Route::get('/dashboard/size/delete','SizeController@destroy');
 
 Auth::routes();
-Route::get('/backend/login', 'LoginController@index');
-Route::post('/backend/login/process', 'LoginController@Process');
+Route::get('/dashboard/login', 'LoginController@index');
+Route::post('/dashboard/login/process', 'LoginController@Process');
 Route::get('/home', 'PagesController@index');

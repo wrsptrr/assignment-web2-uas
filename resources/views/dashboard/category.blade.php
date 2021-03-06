@@ -1,4 +1,4 @@
-@extends('layout/app-backend')
+@extends('layout/dashboard')
 @section('title', 'Category')
 @section('breadcrumb')
     <li class="breadcrumb-item active" aria-current="page">Category</li>
@@ -8,14 +8,14 @@
    
     <!-- Search & Add-->
     <div class="row">
-
         <!-- Search Form -->
         <div class="col-10">
-            <form action="{{ url('backend/category') }}" method="GET">
+            <form action="{{ url('dashboard/category') }}" method="GET">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" name="search" placeholder="Search by category name" aria-describedby="button-addon2">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i class="fas fa-search"></i></button>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i class="fas fa-search"></i></button>
+                    </div>
                 </div>
             </form>
         </div>
@@ -26,7 +26,6 @@
             <button class="btn btn-primary col" data-toggle="modal" data-target="#add"><i class="fas fa-plus mr-2"></i>Add Category</button>
         </div>
         <!-- End Button -->
-
     </div>
     <!-- End Search & Add -->
 
@@ -34,7 +33,7 @@
     @if(isset($_GET['search']))
     <div class="alert alert-primary  alert-dismissible fade show" role="alert">
         Search result from : <strong>{{$_GET['search']}}</strong>
-        <a href="{{ url('backend/category') }}">
+        <a href="{{ url('dashboard/category') }}">
             <button type="button" class="close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -92,7 +91,7 @@
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ url('backend/category') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ url('dashboard/category') }}" method="POST" enctype="multipart/form-data">
             @csrf
                 <div class="modal-body">
                     <div class="form-group">
@@ -124,7 +123,7 @@
             <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <form action="{{ url('/backend/category/update') }}" method="POST" id="edit-form" enctype="multipart/form-data">
+        <form action="{{ url('/dashboard/category/update') }}" method="POST" id="edit-form" enctype="multipart/form-data">
         @csrf
         @method('PATCH')
             <div class="modal-body">
@@ -160,7 +159,7 @@
             <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <form action="{{ url('backend/category/delete') }}" method="POST" id="delete">
+        <form action="{{ url('dashboard/category/delete') }}" method="POST" id="delete">
         @csrf
         @method('DELETE')
             <div class="modal-body">

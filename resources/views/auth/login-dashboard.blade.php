@@ -14,7 +14,7 @@
         <!-- My CSS -->
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
-        <title>Backend | Login</title>
+        <title>Dashboard | Login</title>
     </head>
     <body class="bg-light">
          <!-- Alert -->
@@ -29,10 +29,10 @@
             <div class="bg-white col-4 mx-auto mt-5 p-5 shadow-sm">
                 <div>
                     <h3 class="font-weight-light text-center text-uppercase"><strong>Shopping <span class="text-main">House</span><strong></h3>
-                    <h6 class="font-weight-light text-center text-uppercase" style="letter-spacing:7pt">Backend Login</h6>    
+                    <h6 class="font-weight-light text-center text-uppercase" style="letter-spacing:7pt">Dashboard Login</h6>    
                 </div>
                 
-                <form action="/backend/login/process" method="POST" class="mx-auto col-11 mt-4">
+                <form action="/dashboard/login/process" method="POST" class="mx-auto col-11 mt-4">
                     @csrf
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">

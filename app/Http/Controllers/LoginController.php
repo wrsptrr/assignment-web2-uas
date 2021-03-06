@@ -11,7 +11,7 @@ class LoginController extends Controller
 {
     public function index()
     {
-        return view('auth/login-backend');
+        return view('auth/login-dashboard');
     }
 
     public function process(Request $request)
@@ -23,7 +23,7 @@ class LoginController extends Controller
 
         if(Auth::guard('admin')->attempt(['username' => $request->username, 'password'=>$request->password]))
         {
-            return redirect()->intended('/backend')->with('success','Login Success, Welcome '.Auth::guard('admin')->user()->name);          
+            return redirect()->intended('/dashboard')->with('success','Login Success, Welcome '.Auth::guard('admin')->user()->name);          
         }
         else
         {

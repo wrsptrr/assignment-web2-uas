@@ -20,7 +20,7 @@ class SizeController extends Controller
         $search     =   $request->search;
         $size       =   size::orderBy('id','desc')->where('size','like',"%".$search."%")->paginate(15);
         $category   =   category::all();
-        return view('backend/size', compact('size','category'));
+        return view('dashboard/size', compact('size','category'));
     }
 
     /**
@@ -43,7 +43,7 @@ class SizeController extends Controller
     {
         Size::create($request->all());
         
-        return redirect('backend/size')->with('success','Size created successfully !');
+        return redirect('dashboard/size')->with('success','Size created successfully !');
     }
 
     /**
@@ -80,7 +80,7 @@ class SizeController extends Controller
         $size = Size::findOrFail($request->id);
         $size->update($request->all());
 
-        return redirect('/backend/size')->with('success','Size edited successfully !');
+        return redirect('/dashboard/size')->with('success','Size edited successfully !');
     }
 
     /**
@@ -94,6 +94,6 @@ class SizeController extends Controller
         $size = Size::findOrFail($request->id);
         $size->delete();
         
-        return redirect('/backend/size')->with('success','Size deleted successfully !');
+        return redirect('/dashboard/size')->with('success','Size deleted successfully !');
     }
 }

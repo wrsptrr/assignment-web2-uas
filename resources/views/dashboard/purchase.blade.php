@@ -1,4 +1,4 @@
-@extends('layout.app-backend')
+@extends('layout/dashboard')
 @section('title', 'Purchase History')
 @section('breadcrumb')
     <li class="breadcrumb-item active" aria-current="page">Purchase</li>
@@ -11,7 +11,7 @@
 
         <!-- Search Form -->
         <div class="col-12">
-            <form action="{{ url('backend/purchase') }}" method="GET">
+            <form action="{{ url('dashboard/purchase') }}" method="GET">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" name="search" placeholder="Search by ID bill">
                 <div class="input-group-append">
@@ -29,7 +29,7 @@
     @if(isset($_GET['search']))
     <div class="alert alert-primary  alert-dismissible fade show" role="alert">
         Search result from : <strong>{{$_GET['search']}}</strong>
-        <a href="{{ url('backend/purchase') }}">
+        <a href="{{ url('dashboard/purchase') }}">
             <button type="button" class="close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -59,7 +59,7 @@
             <td>{{ $data->date }}</td>
             <td>{{ $data->payment }}</td>
             <td>
-                <a href="/backend/purchase/{{$data->id}}" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                <a href="/dashboard/purchase/{{$data->id}}" class="btn btn-info"><i class="fas fa-eye"></i></a>
             </td>
         </tr>
         @endforeach

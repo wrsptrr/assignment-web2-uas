@@ -1,8 +1,8 @@
-@extends('layout.app-backend')
+@extends('layout/dashboard')
 @section('title', 'Purchase Detail')
 @section('content')
 @section('breadcrumb')
-    <li class="breadcrumb-item" aria-current="page"><a href="{{ url('/backend/purchase') }}">Purchase</a></li>
+    <li class="breadcrumb-item" aria-current="page"><a href="{{ url('/dashboard/purchase') }}">Purchase</a></li>
     <li class="breadcrumb-item active" aria-current="page">Purchase Detail</li>
 @endsection
 <div class="container bg-white p-5 mb-4 shadow-sm">

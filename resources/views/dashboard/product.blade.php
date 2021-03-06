@@ -1,4 +1,4 @@
-@extends('layout.app-backend')
+@extends('layout/dashboard')
 @section('title', 'Product')
 @section('breadcrumb')
 <li class="breadcrumb-item active" aria-current="page">Product</li>
@@ -11,7 +11,7 @@
 
         <!-- Search Form -->
         <div class="col-10">
-            <form action="{{ url('backend/product') }}" method="GET">
+            <form action="{{ url('dashboard/product') }}" method="GET">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" name="search" placeholder="Search by product name"
                         aria-describedby="button-addon2">
@@ -38,7 +38,7 @@
     @if(isset($_GET['search']))
     <div class="alert alert-primary  alert-dismissible fade show" role="alert">
         Search result from : <strong>{{$_GET['search']}}</strong>
-        <a href="{{ url('backend/product') }}">
+        <a href="{{ url('dashboard/product') }}">
             <button type="button" class="close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -105,7 +105,7 @@
                 </button>
             </div>
 
-            <form action="{{ url('backend/product') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ url('dashboard/product') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                     <div class="form-group">
@@ -152,7 +152,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ url('backend/product/update') }}" method="POST" id="edit-form"
+            <form action="{{ url('dashboard/product/update') }}" method="POST" id="edit-form"
                 enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
@@ -203,7 +203,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ url('backend/product/delete') }}" method="POST" id="delete">
+            <form action="{{ url('dashboard/product/delete') }}" method="POST" id="delete">
                 @csrf
                 @method('DELETE')
                 <div class="modal-body">

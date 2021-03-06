@@ -1,5 +1,5 @@
-@extends('layout.app-backend')
-@section('title', 'Dashboard')
+@extends('layout.dashboard')
+@section('title', 'Welcome to dahsboard!')
 @section('content')
 <div class="row">
 

@@ -15,24 +15,24 @@ use PDF;
 
 class PagesController extends Controller
 {
-    // Frontend
+    // Public
     public function index()
     {
         $product    =   Product::orderBy('id', 'desc')->take(4)->get();
         $category   =   Category::orderBy('id', 'asc')->take(6)->get();
-        return view('frontend/home', compact('product','category')); 
+        return view('public/home', compact('product','category')); 
     }
 
     public function about()
     {
-        return view('frontend/about');
+        return view('public/about');
     }
 
     public function product(Request $request)
     {
         $search     =   $request->search;
         $product    =   Product::orderBy('id', 'desc')->where('product_name','like',"%".$search."%")->paginate(20);
-        return view('frontend/product', compact('product'));
+        return view('public/product', compact('product'));
     }
 
     public function productDetail($id)
@@ -46,13 +46,13 @@ class PagesController extends Controller
         }
 
         $size       =   Size::all()->where('category_id', $cek);
-        return view('frontend/product-detail', compact('product','size'));
+        return view('public/product-detail', compact('product','size'));
     }
 
     public function category()
     {
         $category    =   Category::all();
-        return view('frontend/category', compact('category'));
+        return view('public/category', compact('category'));
     }
 
     public function categoryDetail($category)
@@ -62,7 +62,7 @@ class PagesController extends Controller
         $categories =   $cat->first()->category;
         $product    =   Product::where('category_id', $data)->get();
 
-        return view('frontend/category-detail', compact('product', 'categories'));
+        return view('public/category-detail', compact('product', 'categories'));
     }
 
     public function cart()
@@ -71,7 +71,7 @@ class PagesController extends Controller
         $id_user    =   $user->id;
         $tmp        =   Tmp::all()->where('user_id', $id_user);
 
-        return view('frontend/cart', compact('tmp'));
+        return view('public/cart', compact('tmp'));
     }
 
     public function addCart(Request $request, $id)
@@ -103,7 +103,7 @@ class PagesController extends Controller
         $id_user    =   $user->id;
         $tmp        =   Tmp::all()->where('user_id', $id_user);
         
-        return view('frontend/checkout', compact('user', 'tmp'));
+        return view('public/checkout', compact('user', 'tmp'));
     }
     public function checkoutFinish(Request $request)
     {
@@ -149,19 +149,19 @@ class PagesController extends Controller
     }
     public function finish()
     {
-        return view('frontend/checkout-success');
+        return view('public/checkout-success');
     }
 
     public function account()
     {
         $user   =   Auth::user();
-        return view('frontend/account', compact('user'));
+        return view('public/account', compact('user'));
     }
 
     public function editAccount()
     {
         $user   =   Auth::user();
-        return view('frontend/account-edit', compact('user'));
+        return view('public/account-edit', compact('user'));
     }
 
     public function updateAccount(Request $request)
@@ -224,7 +224,7 @@ class PagesController extends Controller
         $id_user    =   $user->id;
         $purchase   =   Purchase::where('user_id', $id_user)->orderBy('id', 'desc')->get();
 
-        return view('frontend/history', compact('purchase'));
+        return view('public/history', compact('purchase'));
     }
 
     public function historyDetail($id)
@@ -233,7 +233,7 @@ class PagesController extends Controller
         $purchase       =   Purchase::all()->where('id', $id);
         $purchasedetail =   PurchaseDetail::all()->where('purchase_id', $id);
 
-        return view('frontend/history-detail', compact('user','purchase', 'purchasedetail'));
+        return view('public/history-detail', compact('user','purchase', 'purchasedetail'));
     }
 
     public function print($id)
@@ -242,12 +242,12 @@ class PagesController extends Controller
         $purchase       =   Purchase::all()->where('id', $id);
         $purchasedetail =   PurchaseDetail::all()->where('purchase_id', $id);
 
-        $pdf    =   PDF::loadview('frontend/print', compact('user','purchase', 'purchasedetail'));
+        $pdf    =   PDF::loadview('public/print', compact('user','purchase', 'purchasedetail'));
 
         return $pdf->stream();
     }
 
-    // Backend
+    // Dashboard
     public function dashboard()
     {
         $purchase   =   Purchase::count();
@@ -255,7 +255,7 @@ class PagesController extends Controller
         $category   =   category::count();
         $size       =   size::count();
 
-        return view('backend/dashboard', compact('purchase','product','category','size'));
+        return view('/dashboard/dashboard', compact('purchase','product','category','size'));
     }
 
 }

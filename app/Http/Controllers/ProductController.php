@@ -19,7 +19,7 @@ class ProductController extends Controller
         $product    =   Product::orderBy('id','desc')->where('product_name','like',"%".$search."%")->paginate(15);
         $category   =   Category::all();
 
-        return view('backend/product', compact('product','category'));
+        return view('dashboard/product', compact('product','category'));
     }
 
     /**
@@ -67,7 +67,7 @@ class ProductController extends Controller
 
         Product::create($form_data);
 
-        return redirect('backend/product')->with('success','Product created successfully !');
+        return redirect('dashboard/product')->with('success','Product created successfully !');
     }
 
     /**
@@ -126,7 +126,7 @@ class ProductController extends Controller
         }
 
         Product::whereId($request->id)->update($form_data);
-        return redirect('/backend/product')->with('success','Product edited successfully !');
+        return redirect('/dashboard/product')->with('success','Product edited successfully !');
     }
 
     /**
@@ -140,6 +140,6 @@ class ProductController extends Controller
         $product = Product::findOrFail($request->id);
         $product->delete();
 
-        return redirect('/backend/product')->with('success','Product deleted successfully !');
+        return redirect('/dashboard/product')->with('success','Product deleted successfully !');
     }
 }

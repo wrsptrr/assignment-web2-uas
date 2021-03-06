@@ -18,7 +18,7 @@ class PurchaseController extends Controller
     {
         $search     =   $request->search;
         $purchase   =   Purchase::where('id','like',"%".$search."%")->orderBy('id', 'desc')->paginate();
-        return view('backend/purchase', compact('purchase'));
+        return view('dashboard/purchase', compact('purchase'));
     }
 
     /**
@@ -56,7 +56,7 @@ class PurchaseController extends Controller
         $purchase       =   Purchase::all()->where('id', $id);
         $purchasedetail =   PurchaseDetail::all()->where('purchase_id', $id);
 
-        return view('backend/purchase-detail', compact('user','purchase','purchasedetail'));
+        return view('dashboard/purchase-detail', compact('user','purchase','purchasedetail'));
     }
 
     /**
